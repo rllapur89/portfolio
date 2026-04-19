@@ -44,7 +44,7 @@
       },
       "mentoring": {
         "title": "Enseñanza y Comunidad",
-        "body": "Speaker en meetups de Angular, GDE y MVP. Conceptos antes que código — ayudo a developers a construir las bases que realmente importan."
+        "body": "Speaker en meetups de Angular y mentor comprometido. Conceptos antes que código — ayudo a developers a construir las bases que realmente importan."
       }
     }
   },
@@ -126,6 +126,18 @@
       "tata": {
         "title": "Portal de Proveedores TATA",
         "summary": "Portal B2B de gestión de proveedores para TATA Uruguay. Flujos de compras optimizados, seguimiento de facturas e incorporación de vendors."
+      },
+      "arnaldo": {
+        "title": "Arnaldo C. Castro S.A",
+        "summary": "Sitio corporativo de una de las principales empresas de construcción e inmuebles de Uruguay. Diseño moderno, gestión de contenido y entrega orientada al performance."
+      },
+      "twoinnovate": {
+        "title": "2innovate — Sitio Corporativo",
+        "summary": "Sitio corporativo de 2innovate, un estudio de software fintech. Sitio limpio y de alto rendimiento que presenta su producto Frame Banking™ y servicios."
+      },
+      "axletrees": {
+        "title": "Axletrees",
+        "summary": "Plataforma corporativa para Axletrees, una consultora tecnológica. Diseño y desarrollo completo del sitio con stack frontend moderno y entrega optimizada."
       }
     }
   },

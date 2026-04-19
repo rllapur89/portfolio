@@ -44,7 +44,7 @@
       },
       "mentoring": {
         "title": "Teaching & Community",
-        "body": "Speaker at Angular meetups, GDE & MVP. Concepts over code — I help engineers build the foundations that actually matter."
+        "body": "Speaker at Angular meetups and committed mentor. Concepts over code — I help engineers build the foundations that actually matter."
       }
     }
   },
@@ -126,6 +126,18 @@
       "tata": {
         "title": "TATA Suppliers Portal",
         "summary": "B2B supplier management portal for TATA Uruguay. Streamlined procurement workflows, invoice tracking and vendor onboarding."
+      },
+      "arnaldo": {
+        "title": "Arnaldo C. Castro S.A",
+        "summary": "Corporate website for one of Uruguay's leading construction and real estate companies. Modern design, content management and performance-first delivery."
+      },
+      "twoinnovate": {
+        "title": "2innovate — Corporate Site",
+        "summary": "Corporate website for 2innovate, a fintech software studio. Clean, high-performance site showcasing their Frame Banking™ product and services."
+      },
+      "axletrees": {
+        "title": "Axletrees",
+        "summary": "Corporate platform for Axletrees, a technology consulting firm. Full site design and development with modern frontend stack and optimized delivery."
       }
     }
   },

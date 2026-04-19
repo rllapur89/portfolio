@@ -20,7 +20,7 @@ import {
   siNodedotjs, siExpress, siPrisma, siPhp, siLaravel, siSymfony, siDrupal,
   siWordpress, siMysql, siMongodb, siPostgresql, siOctobercms, siDocker,
   siJest, siJasmine, siVitest, siPrimeng,
-  siFigma, siJira, siBitbucket, siGit, siVite, siWebpack, siVercel,
+  siFigma, siJira, siBitbucket, siGit, siVite, siWebpack, siVercel, siSwiper, siGraphql,
   type SimpleIcon,
 } from 'simple-icons';
 
@@ -106,6 +106,7 @@ export const skillIconMap: Record<string, SimpleIcon> = {
   PostgreSQL: siPostgresql,
   'October CMS': siOctobercms,
   Docker: siDocker,
+  'AWS (Cognito, AppSync, Amplify, EC2, Lambda, S3)': siAws,
   'AWS (Cognito, EC2, Lambda, S3)': siAws,
   'AWS Cognito': siAws,
   'Azure AD (MSAL)': siMicrosoft,
@@ -120,6 +121,8 @@ export const skillIconMap: Record<string, SimpleIcon> = {
   Vite: siVite,
   Webpack: siWebpack,
   Vercel: siVercel,
+  SwiperJS: siSwiper,
+  GraphQL: siGraphql,
 };
 
 /** Returns the SimpleIcon for a given tech label, or undefined if not mapped. */
@@ -150,6 +153,12 @@ export const experienceMeta: Record<
       'Azure AD',
       'LLMs',
       'Vercel',
+      'GraphQL',
+      'SwiperJS',
+      'Node.js',
+      'Express',
+      'Prisma',
+      'Tailwind CSS',
     ],
   },
   twoinnovate: {
@@ -160,9 +169,9 @@ export const experienceMeta: Record<
   desoft: { stack: ['PHP', 'Symfony', 'Drupal', 'WordPress', 'PostgreSQL', 'MySQL'] },
 };
 
-export type ProjectKey = 'miAuto' | 'paseLibre' | 'verifone' | 'bcie' | 'bancoEstado' | 'tata';
+export type ProjectKey = 'miAuto' | 'paseLibre' | 'bancoEstado' | 'verifone' | 'bcie' | 'tata' | 'arnaldo' | 'twoinnovate' | 'axletrees';
 
-export const projectOrder: ProjectKey[] = ['miAuto', 'paseLibre', 'verifone', 'bcie', 'bancoEstado', 'tata'];
+export const projectOrder: ProjectKey[] = ['miAuto', 'paseLibre', 'bancoEstado', 'verifone', 'bcie', 'tata', 'arnaldo', 'twoinnovate', 'axletrees'];
 
 export const projectMeta: Record<ProjectKey, { accent: string; slug: string; live: string; image: string }> = {
   miAuto: { accent: 'emerald', slug: 'mi-auto', live: 'https://miauto.sbi.uy/', image: '/images/mi-auto.webp' },
@@ -171,6 +180,9 @@ export const projectMeta: Record<ProjectKey, { accent: string; slug: string; liv
   bcie: { accent: 'emerald', slug: 'bcie', live: 'https://www.bcie.org/', image: '/images/bcie.webp' },
   bancoEstado: { accent: 'violet', slug: 'banco-estado', live: 'https://www.bancoestado.cl', image: '/images/bancoestado.webp' },
   tata: { accent: 'sky', slug: 'tata-proveedores', live: 'https://portal-proveedores.tata.com.uy/public/login', image: '/images/tata.webp' },
+  arnaldo: { accent: 'emerald', slug: 'arnaldo-castro', live: 'https://arnaldocastro.com.uy/', image: '/images/accsa.webp' },
+  twoinnovate: { accent: 'violet', slug: '2innovate', live: 'https://2innovateit.com/', image: '/images/2innovateit.webp' },
+  axletrees: { accent: 'sky', slug: 'axletrees', live: 'https://axletrees.com/', image: '/images/axletrees.webp' },
 };
 
 export type SkillGroupKey = 'frontend' | 'state' | 'backend' | 'infra' | 'testing' | 'practices' | 'tools';
@@ -205,6 +217,7 @@ export const skillGroups: SkillGroup[] = [
       s('Angular Material'),
       s('PrimeNG'),
       s('Material UI'),
+      s('SwiperJS'),
     ],
   },
   {
@@ -215,13 +228,13 @@ export const skillGroups: SkillGroup[] = [
   {
     key: 'backend',
     icon: Braces,
-    items: [s('NestJS'), s('Node.js'), s('Express'), s('Prisma'), s('REST APIs'), s('PHP (Laravel, Symfony)'), s('AI Integration / LLMs'), s('AI Agents')],
+    items: [s('NestJS'), s('Node.js'), s('Express'), s('Prisma'), s('REST APIs'), s('GraphQL'), s('PHP (Laravel, Symfony)'), s('AI Integration / LLMs'), s('AI Agents')],
   },
   {
     key: 'infra',
     icon: Cloud,
     items: [
-      s('AWS (Cognito, EC2, Lambda, S3)'),
+      s('AWS (Cognito, AppSync, Amplify, EC2, Lambda, S3)'),
       s('Azure AD (MSAL)'),
       s('Docker'),
       s('Vercel'),
