@@ -81,7 +81,7 @@ export default async function LocaleLayout({
       </head>
       <body className="flex min-h-dvh flex-col antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <PageLoader />
+          <PageLoader locale={locale} />
           <NextIntlClientProvider messages={messages}>
             <a
               href="#main"

@@ -99,24 +99,33 @@
   },
   "projects": {
     "title": "Proyectos destacados",
-    "subtitle": "Trabajo seleccionado en producción entre fintech, B2B, banca y edtech.",
+    "subtitle": "Trabajo seleccionado en producción entre fintech, seguros, banca y gobierno.",
     "viewAll": "Ver todos los proyectos",
     "viewCase": "Ver caso de estudio",
     "items": {
+      "miAuto": {
+        "title": "MiAuto — SBI Uruguay",
+        "summary": "Plataforma de gestión de seguros de vehículos para SBI Uruguay. Ciclo completo de pólizas, motor de precios en tiempo real y portal de autogestión."
+      },
+      "paseLibre": {
+        "title": "Pase Libre — Gestión de Tránsito",
+        "summary": "Sistema nacional de gestión de pases de tránsito para Uruguay. Panel de administración con roles para elegibilidad de beneficios, incorporación de usuarios y reportes."
+      },
       "verifone": {
         "title": "Verifone Merchant Order Portal",
-        "summary": "Arquitectura Microfrontends para el proveedor POS #1 del mundo. Millones de usuarios, Design System compartido, SSO híbrido y validación con IA.",
-        "tags": ["Angular", "Microfrontends", "NgRx", "AWS Cognito", "AI Agents"]
+        "summary": "Arquitectura Microfrontends para el proveedor POS #1 del mundo. Millones de usuarios, Design System compartido, SSO híbrido y validación con IA."
       },
-      "frameBanking": {
-        "title": "Frame Banking™",
-        "summary": "Plataforma bancaria modular para BTG Pactual y Santander. 100K+ transacciones diarias, 60% de código reutilizado, 25% mejor performance.",
-        "tags": ["Angular", "NgRx", "Angular Material", "Nebular"]
+      "bcie": {
+        "title": "BCIE — Banco Centroamericano",
+        "summary": "Plataforma web institucional del Banco Centroamericano de Integración Económica. Portal multiidioma al servicio de 15 países miembro."
       },
-      "ceibal": {
-        "title": "Portal del Estudiante Ceibal",
-        "summary": "Portal estudiantil nacional del Plan Ceibal de Uruguay. Ownership end-to-end desde el schema hasta los tests.",
-        "tags": ["PHP", "Laravel", "October CMS", "MySQL"]
+      "bancoEstado": {
+        "title": "BancoEstado — Chile",
+        "summary": "Plataforma web del banco estatal de Chile. Portal de alto tráfico, accesible y al servicio de millones de ciudadanos chilenos."
+      },
+      "tata": {
+        "title": "Portal de Proveedores TATA",
+        "summary": "Portal B2B de gestión de proveedores para TATA Uruguay. Flujos de compras optimizados, seguimiento de facturas e incorporación de vendors."
       }
     }
   },

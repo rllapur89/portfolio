@@ -158,14 +158,17 @@ export const experienceMeta: Record<
   desoft: { stack: ['PHP', 'Symfony', 'Drupal', 'WordPress', 'PostgreSQL', 'MySQL'] },
 };
 
-export type ProjectKey = 'verifone' | 'frameBanking' | 'ceibal';
+export type ProjectKey = 'miAuto' | 'paseLibre' | 'verifone' | 'bcie' | 'bancoEstado' | 'tata';
 
-export const projectOrder: ProjectKey[] = ['verifone', 'frameBanking', 'ceibal'];
+export const projectOrder: ProjectKey[] = ['miAuto', 'paseLibre', 'verifone', 'bcie', 'bancoEstado', 'tata'];
 
-export const projectMeta: Record<ProjectKey, { accent: string; slug: string; live?: string }> = {
-  verifone: { accent: 'emerald', slug: 'verifone-merchant-order-portal' },
-  frameBanking: { accent: 'violet', slug: 'frame-banking' },
-  ceibal: { accent: 'sky', slug: 'ceibal-student-portal' },
+export const projectMeta: Record<ProjectKey, { accent: string; slug: string; live: string; image: string }> = {
+  miAuto: { accent: 'emerald', slug: 'mi-auto', live: 'https://miauto.sbi.uy/', image: '/images/mi-auto.webp' },
+  paseLibre: { accent: 'violet', slug: 'pase-libre', live: 'https://panel.paselibre.uy/public/login', image: '/images/paselibre.webp' },
+  verifone: { accent: 'sky', slug: 'verifone-merchant-order-portal', live: 'https://us.vfmerchantportal.com/', image: '/images/verifone.webp' },
+  bcie: { accent: 'emerald', slug: 'bcie', live: 'https://www.bcie.org/', image: '/images/bcie.webp' },
+  bancoEstado: { accent: 'violet', slug: 'banco-estado', live: 'https://www.bancoestado.cl', image: '/images/bancoestado.webp' },
+  tata: { accent: 'sky', slug: 'tata-proveedores', live: 'https://portal-proveedores.tata.com.uy/public/login', image: '/images/tata.webp' },
 };
 
 export type SkillGroupKey = 'frontend' | 'state' | 'backend' | 'infra' | 'testing' | 'practices' | 'tools';

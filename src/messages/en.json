@@ -99,24 +99,33 @@
   },
   "projects": {
     "title": "Featured projects",
-    "subtitle": "Selected production work across fintech, B2B, banking and edtech.",
+    "subtitle": "Selected production work across fintech, insurance, banking and government.",
     "viewAll": "View all projects",
     "viewCase": "View case study",
     "items": {
+      "miAuto": {
+        "title": "MiAuto — SBI Uruguay",
+        "summary": "Vehicle insurance management platform for SBI Uruguay. End-to-end policy lifecycle, real-time pricing engine and customer self-service portal."
+      },
+      "paseLibre": {
+        "title": "Pase Libre — Transit Management",
+        "summary": "National transit pass management system for Uruguay. Role-based admin panel handling benefit eligibility, user onboarding and reporting."
+      },
       "verifone": {
         "title": "Verifone Merchant Order Portal",
-        "summary": "Microfrontends architecture for the world's #1 POS provider. Millions of users, shared Design System, hybrid SSO, AI-powered validation.",
-        "tags": ["Angular", "Microfrontends", "NgRx", "AWS Cognito", "AI Agents"]
+        "summary": "Microfrontends architecture for the world's #1 POS provider. Millions of users, shared Design System, hybrid SSO and AI-powered validation."
       },
-      "frameBanking": {
-        "title": "Frame Banking™",
-        "summary": "Modular banking platform for BTG Pactual and Santander. 100K+ daily transactions, 60% code reuse, 25% response time improvement.",
-        "tags": ["Angular", "NgRx", "Angular Material", "Nebular"]
+      "bcie": {
+        "title": "BCIE — Central American Bank",
+        "summary": "Institutional web platform for the Central American Bank for Economic Integration. Multi-language portal serving 15 member nations."
       },
-      "ceibal": {
-        "title": "Ceibal Student Portal",
-        "summary": "National student portal for Uruguay's Plan Ceibal. End-to-end ownership from schema design to UI flows and testing suites.",
-        "tags": ["PHP", "Laravel", "October CMS", "MySQL"]
+      "bancoEstado": {
+        "title": "BancoEstado — Chile",
+        "summary": "Public-facing web platform for Chile's state-owned bank. High-traffic, accessibility-compliant portal serving millions of Chilean citizens."
+      },
+      "tata": {
+        "title": "TATA Suppliers Portal",
+        "summary": "B2B supplier management portal for TATA Uruguay. Streamlined procurement workflows, invoice tracking and vendor onboarding."
       }
     }
   },
