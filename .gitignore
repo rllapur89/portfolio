@@ -24,6 +24,10 @@
 .DS_Store
 *.pem
 
+# claude code
+.claude/
+.playwright-mcp/
+
 # debug
 npm-debug.log*
 yarn-debug.log*

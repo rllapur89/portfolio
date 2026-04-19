@@ -1,26 +1,142 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-background: oklch(0.99 0.003 247);
+  --color-foreground: oklch(0.18 0.012 254);
+  --color-muted: oklch(0.96 0.005 247);
+  --color-muted-foreground: oklch(0.48 0.013 254);
+  --color-card: oklch(1 0 0);
+  --color-card-foreground: oklch(0.18 0.012 254);
+  --color-border: oklch(0.91 0.007 247);
+  --color-input: oklch(0.91 0.007 247);
+  --color-ring: oklch(0.68 0.16 156);
+  --color-accent: oklch(0.72 0.17 156);
+  --color-accent-foreground: oklch(0.15 0.025 158);
+  --color-primary: oklch(0.2 0.015 254);
+  --color-primary-foreground: oklch(0.99 0.003 247);
+  --color-destructive: oklch(0.58 0.22 27);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --radius: 0.75rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  --color-background: oklch(0.13 0.013 254);
+  --color-foreground: oklch(0.97 0.003 247);
+  --color-muted: oklch(0.2 0.012 254);
+  --color-muted-foreground: oklch(0.68 0.012 254);
+  --color-card: oklch(0.17 0.013 254);
+  --color-card-foreground: oklch(0.97 0.003 247);
+  --color-border: oklch(0.27 0.013 254);
+  --color-input: oklch(0.27 0.013 254);
+  --color-ring: oklch(0.72 0.17 156);
+  --color-accent: oklch(0.76 0.17 156);
+  --color-accent-foreground: oklch(0.15 0.025 158);
+  --color-primary: oklch(0.97 0.003 247);
+  --color-primary-foreground: oklch(0.15 0.015 254);
+  --color-destructive: oklch(0.65 0.22 27);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    min-height: 100dvh;
+  }
+
+  a,
+  button,
+  [role='button'],
+  label[for],
+  summary,
+  select,
+  [type='button'],
+  [type='submit'],
+  [type='reset'] {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .container-page {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, color-mix(in oklab, var(--color-border) 60%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--color-border) 60%, transparent) 1px, transparent 1px);
+    background-size: 3rem 3rem;
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, black 40%, transparent 100%);
+  }
+
+  .gradient-accent {
+    background: linear-gradient(
+      135deg,
+      var(--color-accent) 0%,
+      color-mix(in oklab, var(--color-accent) 60%, var(--color-ring)) 100%
+    );
+  }
+
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      var(--color-foreground) 0%,
+      color-mix(in oklab, var(--color-accent) 80%, var(--color-foreground)) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
 }

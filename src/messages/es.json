@@ -1,0 +1,177 @@
+{
+  "metadata": {
+    "title": "Rene Llapur — Portafolio",
+    "titleTemplate": "%s · Rene Llapur",
+    "description": "Senior Frontend Engineer con 12+ años construyendo aplicaciones de alta disponibilidad para finanzas, educación y empresas. Angular, React, Next.js, integración de IA.",
+    "keywords": "Rene Llapur, Senior Frontend Engineer, Angular, React, Next.js, NgRx, TypeScript, Clean Architecture, IA, Uruguay"
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "skills": "Skills",
+    "talks": "Charlas",
+    "contact": "Contacto",
+    "toggleMenu": "Alternar menú",
+    "toggleTheme": "Alternar tema",
+    "switchLanguage": "Cambiar idioma",
+    "skipToContent": "Saltar al contenido principal"
+  },
+  "hero": {
+    "eyebrow": "Disponible para roles senior",
+    "greeting": "Hola, soy Rene",
+    "title": "Senior",
+    "roles": ["Software Engineer", "Frontend Engineer", "Experto en Angular", "Tech Lead"],
+    "tagline": "Construyo plataformas web de alta disponibilidad para millones de usuarios. Experto en Angular, React y arquitectura limpia — apasionado por el performance, el mentoring y las experiencias con IA.",
+    "location": "Desde Montevideo, Uruguay",
+    "primaryCta": "Descargar CV",
+    "secondaryCta": "Contactame",
+    "status": "Abierto a oportunidades remotas"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "lead": "12+ años enviando software a producción en plataformas financieras, educativas y corporativas.",
+    "body": "Soy un Senior Software Engineer que une excelencia técnica con resultados de negocio. Desde migraciones de AngularJS hasta asistentes de validación con IA, diseño sistemas que escalan. Soy Google Developer Expert y Microsoft MVP, speaker en meetups de Angular y mentor comprometido — conduje 20+ entrevistas técnicas y diseñé el roadmap de onboarding para seniors y juniors.",
+    "pillars": {
+      "architecture": {
+        "title": "Clean Architecture",
+        "body": "Hexagonal, Screaming Architecture, Atomic Design y patrones Container-Presentational. Diseño sistemas que evolucionan, no que se rompen."
+      },
+      "performance": {
+        "title": "Performance Primero",
+        "body": "30% de mejora en LCP, 25% menos latencia de API, 100% cobertura de código. Core Web Vitals y state management bien hechos."
+      },
+      "mentoring": {
+        "title": "Enseñanza y Comunidad",
+        "body": "Speaker en meetups de Angular, GDE y MVP. Conceptos antes que código — ayudo a developers a construir las bases que realmente importan."
+      }
+    }
+  },
+  "experience": {
+    "title": "Experiencia",
+    "subtitle": "12+ años entre finanzas, educación, gobierno y corporativo.",
+    "present": "Presente",
+    "items": {
+      "switch": {
+        "company": "Switch Software Solutions",
+        "role": "Desarrollador Full-stack",
+        "period": "Jul 2021 — Presente",
+        "highlights": [
+          "Lideré el desarrollo del Merchant Order Portal de Verifone — el proveedor POS #1 del mundo — sirviendo a millones de usuarios con arquitectura Microfrontends + Monorepo y un Design System compartido.",
+          "Arquitecté un SSO híbrido integrando Azure AD, Radius y MFA (TOTP) vía AWS Cognito, reduciendo el tiempo de onboarding en 40%.",
+          "Logré 30% de mejora en LCP y 25% menos latencia de API con NgRx y estrategias de Core Web Vitals.",
+          "Diseñé asistentes de validación con IA y streaming en tiempo real, reduciendo errores de configuración B2B en 30% y tickets de soporte en 50%.",
+          "Migré una app crítica de AngularJS a la última versión de Angular sin regresiones.",
+          "Conduje 20+ entrevistas técnicas y diseñé el roadmap de onboarding para nuevos seniors y juniors."
+        ]
+      },
+      "twoinnovate": {
+        "company": "2innovate",
+        "role": "Senior Frontend Developer",
+        "period": "Dic 2019 — Sep 2021",
+        "highlights": [
+          "Construí interfaces modulares para Frame Banking™ con 60% de reutilización de código vía librerías Angular compartidas.",
+          "Entregué plataformas críticas para BTG Pactual y Santander soportando 100.000+ transacciones diarias.",
+          "Mejoré tiempos de respuesta en 25% con NgRx y optimización de APIs.",
+          "Modernicé sistemas bancarios legacy desde Angular 5 a las últimas versiones con 100% de cobertura."
+        ]
+      },
+      "arnaldo": {
+        "company": "Arnaldo C. Castro S.A",
+        "role": "Desarrollador Full-stack",
+        "period": "Abr 2018 — May 2019",
+        "highlights": [
+          "Lideré el desarrollo del Portal del Estudiante de Ceibal, mejorando el aprendizaje digital en todo Uruguay.",
+          "Fui dueño del ciclo completo: esquemas de base de datos, APIs REST, flujos UI y testing unitario/integración."
+        ]
+      },
+      "desoft": {
+        "company": "Desoft S.A",
+        "role": "Desarrollador Full-stack",
+        "period": "Sep 2013 — Jun 2017",
+        "highlights": [
+          "Entregué y mantuve 15+ portales web para ministerios nacionales cubanos (MINCEX, MINCOM).",
+          "Programé y diseñé e-books técnicos para la Editorial de Ciencias Médicas con accesibilidad cross-device."
+        ]
+      }
+    }
+  },
+  "projects": {
+    "title": "Proyectos destacados",
+    "subtitle": "Trabajo seleccionado en producción entre fintech, B2B, banca y edtech.",
+    "viewAll": "Ver todos los proyectos",
+    "viewCase": "Ver caso de estudio",
+    "items": {
+      "verifone": {
+        "title": "Verifone Merchant Order Portal",
+        "summary": "Arquitectura Microfrontends para el proveedor POS #1 del mundo. Millones de usuarios, Design System compartido, SSO híbrido y validación con IA.",
+        "tags": ["Angular", "Microfrontends", "NgRx", "AWS Cognito", "AI Agents"]
+      },
+      "frameBanking": {
+        "title": "Frame Banking™",
+        "summary": "Plataforma bancaria modular para BTG Pactual y Santander. 100K+ transacciones diarias, 60% de código reutilizado, 25% mejor performance.",
+        "tags": ["Angular", "NgRx", "Angular Material", "Nebular"]
+      },
+      "ceibal": {
+        "title": "Portal del Estudiante Ceibal",
+        "summary": "Portal estudiantil nacional del Plan Ceibal de Uruguay. Ownership end-to-end desde el schema hasta los tests.",
+        "tags": ["PHP", "Laravel", "October CMS", "MySQL"]
+      }
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Las herramientas y prácticas que uso todos los días.",
+    "groups": {
+      "frontend": "Frontend y UI",
+      "state": "State Management",
+      "backend": "Backend y APIs",
+      "infra": "Infra y Cloud",
+      "testing": "Testing y QA",
+      "practices": "Prácticas",
+      "tools": "Herramientas & Dev"
+    }
+  },
+  "talks": {
+    "title": "Charlas y Comunidad",
+    "subtitle": "Compartiendo conocimiento con la comunidad Angular y frontend.",
+    "speakerBadge": "Speaker en Meetups de Angular",
+    "certifications": "Certificaciones",
+    "watchTalk": "Ver charla",
+    "items": [
+      {
+        "title": "APIs de OpenAI en Angular — Modelos, Integración y Uso Eficiente",
+        "event": "Angular MVD Meetup",
+        "year": "2024",
+        "description": "Demo en vivo e integración de las APIs de OpenAI en un proyecto Angular — cobertura de cada modelo disponible, sus trade-offs y estrategias para un uso eficiente y consciente del costo en apps de producción.",
+        "videoUrl": "https://www.youtube.com/watch?v=zXHSFZ3IAQk",
+        "tags": ["Angular", "OpenAI", "Integración IA", "LLMs"]
+      }
+    ]
+  },
+  "contact": {
+    "title": "Construyamos algo grande",
+    "subtitle": "Abierto a roles senior de frontend, full-stack y tech lead. Remote-friendly.",
+    "formTitle": "Escribime un mensaje",
+    "name": "Tu nombre",
+    "email": "Tu email",
+    "message": "Tu mensaje",
+    "send": "Enviar mensaje",
+    "sending": "Enviando…",
+    "success": "¡Mensaje enviado! Te respondo en las próximas 24 horas.",
+    "error": "Algo salió mal. Escribime directo a mi email.",
+    "validation": {
+      "nameRequired": "El nombre es obligatorio",
+      "emailInvalid": "Ingresá un email válido",
+      "messageShort": "Contame un poco más (mín. 10 caracteres)"
+    },
+    "direct": "¿Preferís email?",
+    "directEmail": "rene.llapur@gmail.com"
+  },
+  "footer": {
+    "builtWith": "Construido con Next.js, Tailwind y dedicación.",
+    "copyright": "© {year} Rene Llapur. Todos los derechos reservados.",
+    "madeIn": "Hecho en Montevideo, Uruguay."
+  }
+}
