@@ -25,7 +25,7 @@
 }
 
 .dark {
-  --color-background: oklch(0.13 0.013 254);
+  --color-background: oklch(0.10 0.018 258);
   --color-foreground: oklch(0.97 0.003 247);
   --color-muted: oklch(0.2 0.012 254);
   --color-muted-foreground: oklch(0.68 0.012 254);
@@ -58,6 +58,14 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     min-height: 100dvh;
+  }
+
+  .dark body {
+    background:
+      radial-gradient(ellipse 70% 60% at -5% 50%, oklch(0.60 0.18 175 / 0.35) 0%, transparent 65%),
+      radial-gradient(ellipse 55% 50% at 110% 60%, oklch(0.50 0.20 270 / 0.25) 0%, transparent 65%),
+      var(--color-background);
+    background-attachment: fixed;
   }
 
   a,

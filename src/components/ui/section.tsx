@@ -26,21 +26,24 @@ export function Section({
       {...rest}
     >
       <div className="container-page">
-        <header className="mx-auto mb-10 max-w-2xl text-center md:mb-14">
+        <header className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
           {eyebrow && (
-            <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
               {eyebrow}
             </p>
           )}
-          <h2
-            id={`${id}-title`}
-            className="text-balance text-3xl font-semibold tracking-tight md:text-5xl"
-          >
-            {title}
-          </h2>
+          <div className="flex items-center gap-4">
+            <span className="h-px flex-1 bg-linear-to-r from-transparent to-border" aria-hidden />
+            <h2
+              id={`${id}-title`}
+              className="text-balance text-3xl font-semibold tracking-tight md:text-5xl"
+            >
+              {title}
+            </h2>
+            <span className="h-px flex-1 bg-linear-to-l from-transparent to-border" aria-hidden />
+          </div>
           {subtitle && (
-            <p className="mt-3 text-balance text-base text-muted-foreground md:text-lg">
+            <p className="mt-4 text-balance text-base text-muted-foreground md:text-lg">
               {subtitle}
             </p>
           )}
