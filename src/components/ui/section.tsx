@@ -22,7 +22,7 @@ export function Section({
     <section
       id={id}
       aria-labelledby={`${id}-title`}
-      className={cn('scroll-mt-20 py-20 md:py-28', className)}
+      className={cn('scroll-mt-20 py-12 md:py-16', className)}
       {...rest}
     >
       <div className="container-page">

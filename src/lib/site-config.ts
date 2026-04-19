@@ -10,7 +10,7 @@ export const siteConfig = {
   cvPath: '/cv/rene-llapur-cv.pdf',
   socials: {
     linkedin: 'https://www.linkedin.com/in/rllapur',
-    github: 'https://github.com/renellapur',
+    github: 'https://github.com/rllapur89',
     email: 'mailto:rene.llapur@gmail.com',
   },
   navSections: [

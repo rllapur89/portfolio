@@ -20,7 +20,7 @@ import {
   siNodedotjs, siExpress, siPrisma, siPhp, siLaravel, siSymfony, siDrupal,
   siWordpress, siMysql, siMongodb, siPostgresql, siOctobercms, siDocker,
   siJest, siJasmine, siVitest, siPrimeng,
-  siFigma, siJira, siBitbucket, siGit, siVite, siWebpack,
+  siFigma, siJira, siBitbucket, siGit, siVite, siWebpack, siVercel,
   type SimpleIcon,
 } from 'simple-icons';
 
@@ -119,6 +119,7 @@ export const skillIconMap: Record<string, SimpleIcon> = {
   Git: siGit,
   Vite: siVite,
   Webpack: siWebpack,
+  Vercel: siVercel,
 };
 
 /** Returns the SimpleIcon for a given tech label, or undefined if not mapped. */
@@ -148,6 +149,7 @@ export const experienceMeta: Record<
       'AWS Cognito',
       'Azure AD',
       'LLMs',
+      'Vercel',
     ],
   },
   twoinnovate: {
@@ -222,6 +224,7 @@ export const skillGroups: SkillGroup[] = [
       s('AWS (Cognito, EC2, Lambda, S3)'),
       s('Azure AD (MSAL)'),
       s('Docker'),
+      s('Vercel'),
       s('CI/CD Pipelines'),
       s('OAuth2 / OIDC'),
       s('JWT / MFA'),
