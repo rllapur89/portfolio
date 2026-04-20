@@ -127,12 +127,12 @@ function ProjectCard({ accent, title, summary, image, live }: ProjectCardProps) 
   );
 }
 
-const SLIDES = Math.ceil(projectOrder.length / 3);
-
 export function Projects() {
   const t = useTranslations('projects');
   const swiperRef = useRef<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [perView, setPerView] = useState(1);
+  const totalSlides = Math.ceil(projectOrder.length / perView);
 
   return (
     <Section id="projects" title={t('title')} subtitle={t('subtitle')}>
@@ -143,12 +143,22 @@ export function Projects() {
             slidesPerView={1}
             spaceBetween={24}
             breakpoints={{
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
+              768: { slidesPerView: 2, slidesPerGroup: 2 },
+              1024: { slidesPerView: 3, slidesPerGroup: 3 },
             }}
-            slidesPerGroup={3}
-            onSwiper={(swiper) => { swiperRef.current = swiper; }}
-            onSlideChange={(swiper) => setActiveIndex(Math.round(swiper.activeIndex / 3))}
+            slidesPerGroup={1}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+              setPerView(swiper.params.slidesPerGroup as number ?? 1);
+            }}
+            onBreakpoint={(swiper) => {
+              setPerView(swiper.params.slidesPerGroup as number ?? 1);
+              setActiveIndex(0);
+            }}
+            onSlideChange={(swiper) => {
+              const spg = swiper.params.slidesPerGroup as number ?? 1;
+              setActiveIndex(Math.floor(swiper.activeIndex / spg));
+            }}
             a11y={{ prevSlideMessage: 'Previous projects', nextSlideMessage: 'Next projects' }}
             className="pb-2!"
           >
@@ -181,14 +191,14 @@ export function Projects() {
 
             {/* Dots */}
             <div className="flex items-center gap-2" role="tablist" aria-label="Project slides">
-              {Array.from({ length: SLIDES }).map((_, i) => (
+              {Array.from({ length: totalSlides }).map((_, i) => (
                 <button
                   key={i}
                   role="tab"
                   aria-selected={i === activeIndex}
                   aria-label={`Slide ${i + 1}`}
                   onClick={() => {
-                    swiperRef.current?.slideTo(i * 3);
+                    swiperRef.current?.slideTo(i * perView);
                     setActiveIndex(i);
                   }}
                   className={`rounded-full transition-all duration-300 ${
