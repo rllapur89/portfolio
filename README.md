@@ -1,8 +1,8 @@
-# Rene Llapur — Portfolio
+# rene.llapur — Portfolio
 
-Personal portfolio of **Rene Llapur**, Senior Frontend Engineer. Built with Next.js 15, Tailwind CSS v4, Framer Motion, and next-intl.
+Personal portfolio of **Rene Llapur**, Senior Frontend Engineer with 12+ years of experience across finance, education, government, and enterprise.
 
-**Live:** `renellapur.dev` (pending deploy)
+**Live:** `renellapur.dev` (pending custom domain)
 
 ---
 
@@ -10,18 +10,68 @@ Personal portfolio of **Rene Llapur**, Senior Frontend Engineer. Built with Next
 
 | Layer | Technology |
 | --- | --- |
-| Framework | Next.js 15.x (App Router) + React 19 + TypeScript 5 |
+| Framework | Next.js 16 (App Router) + React 19 + TypeScript 5 |
 | Styling | Tailwind CSS v4 (CSS variables, `oklch` color space) |
-| Animations | Framer Motion 11 (`prefers-reduced-motion` aware) |
-| i18n | next-intl v3 — `/en` / `/es` routing with `localePrefix: 'always'` |
+| Animations | Framer Motion 12 (`prefers-reduced-motion` aware) |
+| i18n | next-intl v4 — `/en` / `/es` routing |
 | Theming | next-themes — system auto-detect + toggle, persisted in localStorage |
-| Forms | React Hook Form + Zod + Resend (Server Action) |
+| Icons | Lucide React + simple-icons |
+| Slider | Swiper 12 |
+| Forms | React Hook Form + Zod v4 + Resend (Server Action) |
 | SEO | `generateMetadata`, `sitemap.ts`, `robots.ts`, JSON-LD Person schema |
 | Fonts | Geist Sans + Geist Mono via `next/font/google` |
+| Deploy | Vercel |
 
 ---
 
-## Project structure
+## Under the Hood
+
+### Architecture
+
+One-page scroll with anchor-based navigation (`#about`, `#experience`, `#projects`, etc.). All sections are server-rendered by default — only interactive components (`Headline`, `Projects`, `Header`) are `'use client'`. Static data lives in `src/lib/data.ts`; copy lives in `src/messages/{en,es}.json`.
+
+### Theming
+
+Dark/light via `next-themes` with `attribute="class"`. CSS variables defined in `globals.css` using `@theme` (Tailwind v4 native). Dark mode background uses two `radial-gradient` layers (green left, blue right) with `background-attachment: fixed` for a depth effect on scroll. No FOUC — `next-themes` injects a blocking script before paint.
+
+Accent color: **emerald** (`oklch(0.72 0.17 156)`). To change it, update `--color-accent` and `--color-ring` in both `:root` and `.dark` blocks in `src/app/globals.css`.
+
+### i18n
+
+`next-intl` v4 with static locale routing. `generateStaticParams` emits both locales at build time — zero runtime locale detection. Toggle in header switches locale preserving the current path. `hreflang` alternate links are generated automatically in `generateMetadata`.
+
+### Animations
+
+Framer Motion with a custom `usePrefersReducedMotion` hook. When `prefers-reduced-motion: reduce` is active, motion components fall back to plain `div`s — no layout shift, no jarring transitions. The hero typewriter cursor uses a keyframe array `[1, 1, 0, 0]` with `times: [0, 0.5, 0.5, 1]` to achieve a proper hold-then-blink cadence rather than a linear fade.
+
+### Projects Slider
+
+SwiperJS with responsive `slidesPerGroup`: 1 on mobile, 2 on tablet, 3 on desktop. Dot indicators are computed dynamically from `slidesPerGroup` via `onBreakpoint` — `Math.ceil(total / perGroup)` — so they always reflect the actual number of page groups at the current viewport. Navigation clicks use `slideTo(i * perGroup)` for correct group alignment.
+
+### Performance
+
+- `next/image` with `fill` + `sizes` for all project thumbnails — AVIF/WebP served automatically by Vercel
+- Fonts via `next/font/google` with `display: swap` — no layout shift
+- `optimizePackageImports` for `lucide-react` and `framer-motion`
+- App Router automatic code splitting per route
+
+### SEO
+
+- `generateMetadata` with `title`, `description`, `openGraph`, `twitter`, `canonical`, and `alternates` (hreflang EN/ES)
+- JSON-LD `Person` schema injected in root layout
+- `sitemap.ts` and `robots.ts` generated at build time
+
+### Accessibility
+
+- Semantic HTML: `<header>`, `<main>`, `<nav>`, `<section aria-labelledby>`, `<footer>`
+- Skip-to-content link (visible on focus)
+- All interactive elements have `aria-label` or associated labels
+- Focus ring via `focus-visible:` Tailwind utilities
+- Slider dots use `role="tablist"` / `role="tab"` with `aria-selected`
+
+---
+
+## Project Structure
 
 ```text
 src/
@@ -30,7 +80,6 @@ src/
 │   │   ├── layout.tsx          # Per-locale root: html lang, ThemeProvider, PageLoader, NextIntlClientProvider
 │   │   ├── page.tsx            # Home — all sections assembled
 │   │   └── actions.ts          # Server Action: sendContactMessage → Resend
-│   ├── layout.tsx              # Root passthrough (Next.js requirement)
 │   ├── globals.css             # Tailwind v4 @theme, CSS vars light/dark, utilities
 │   ├── sitemap.ts
 │   ├── robots.ts
@@ -53,10 +102,9 @@ src/
 │   ├── seo.ts                  # buildMetadata helper + personJsonLd
 │   ├── site-config.ts          # Name, email, socials, nav sections
 │   └── utils.ts                # cn(), absoluteUrl(), getSiteUrl()
-├── messages/
-│   ├── en.json                 # All EN copy
-│   └── es.json                 # All ES copy
-└── proxy.ts                    # next-intl middleware
+└── messages/
+    ├── en.json                 # All EN copy
+    └── es.json                 # All ES copy
 ```
 
 ---
@@ -66,17 +114,17 @@ src/
 | Section | Description |
 | --- | --- |
 | **PageLoader** | Terminal boot sequence — typewriter lines, `[OK]`/`[READY]` tags, progress bar. i18n EN/ES. Respects `prefers-reduced-motion`. |
-| **Headline** | Hero with staggered Framer Motion entry, typewriter role switcher, mouse-follow spotlight, CV download CTA. |
+| **Headline** | Hero with staggered Framer Motion entry, typewriter role switcher with blinking cursor, mouse-follow spotlight, CV download CTA. |
 | **About** | Lead paragraph + 3 pillars (Clean Architecture, Performance, Mentoring). |
 | **Experience** | Timeline of 4 companies (Switch, 2innovate, Arnaldo Castro, Desoft) with highlights and tech stack badges. |
-| **Projects** | 6 production projects as image cards with 3D tilt, cursor spotlight and hover zoom. Opens in new tab. |
+| **Projects** | 9 production projects in a responsive SwiperJS carousel (3/2/1 per slide). Cards with 3D tilt, cursor spotlight and hover zoom. |
 | **Skills** | Grouped by category (Frontend, State, Backend, Infra, Testing, Practices, Tools) with SimpleIcons. |
 | **Talks** | Angular meetup talk + certifications list. |
 | **Contact** | React Hook Form + Zod validation + Resend Server Action. |
 
 ---
 
-## Getting started
+## Getting Started
 
 ### Prerequisites
 
@@ -90,9 +138,7 @@ npm install
 npm run dev        # http://localhost:3000 → redirects to /en
 ```
 
-### Environment variables
-
-Copy and fill in before running in production:
+### Environment Variables
 
 ```bash
 # Public site URL — used for canonical URLs, OG images, sitemap
@@ -108,87 +154,40 @@ CONTACT_EMAIL_TO=rene.llapur@gmail.com
 CONTACT_EMAIL_FROM=contact@renellapur.dev
 ```
 
-> Without `RESEND_API_KEY` the contact form returns an `unconfigured` error and logs a warning — the rest of the site works fine.
+> Without `RESEND_API_KEY` the contact form returns an `unconfigured` error — the rest of the site works fine.
 
 ### Build
 
 ```bash
 npm run build      # SSG — generates /en and /es
 npm run start      # Serve production build locally
-npm run lint       # ESLint (flat config)
+npm run lint       # ESLint flat config
 npm run format     # Prettier
 ```
 
 ---
 
-## Projects data
+## Projects Data
 
-The 6 featured projects are configured in `src/lib/data.ts` (`projectMeta` + `projectOrder`). Copy lives in `src/messages/{en,es}.json` under `projects.items`.
+Projects are configured in `src/lib/data.ts` (`projectMeta` + `projectOrder`). Copy lives in `src/messages/{en,es}.json` under `projects.items`.
 
-Each project has: `accent` color, `slug`, `live` URL and `image` path (under `public/images/`).
-
-Current projects:
+Each project entry has: `accent` color, `slug`, `live` URL and `image` path (under `public/images/`).
 
 | Key | Site |
 | --- | --- |
+| `bancoEstado` | [bancoestado.cl](https://www.bancoestado.cl) |
+| `verifone` | [us.vfmerchantportal.com](https://us.vfmerchantportal.com/) |
 | `miAuto` | [miauto.sbi.uy](https://miauto.sbi.uy/) |
 | `paseLibre` | [panel.paselibre.uy](https://panel.paselibre.uy/public/login) |
-| `verifone` | [us.vfmerchantportal.com](https://us.vfmerchantportal.com/) |
 | `bcie` | [bcie.org](https://www.bcie.org/) |
-| `bancoEstado` | [bancoestado.cl](https://www.bancoestado.cl) |
 | `tata` | [portal-proveedores.tata.com.uy](https://portal-proveedores.tata.com.uy/public/login) |
+| `arnaldo` | [arnaldocastro.com.uy](https://arnaldocastro.com.uy/) |
+| `twoinnovate` | [2innovateit.com](https://2innovateit.com/) |
+| `axletrees` | [axletrees.com](https://axletrees.com/) |
 
 ---
 
-## i18n
-
-| Locale | URL | Default |
-| --- | --- | --- |
-| English | `/en` | ✅ yes |
-| Spanish | `/es` | — |
-
-- Root `/` redirects to `/en` (middleware detects `Accept-Language` header).
-- Toggle in header switches locale while preserving the current path.
-- `hreflang` alternate links generated automatically in `generateMetadata`.
-- PageLoader boot lines are also translated per locale.
-
-To add a new locale: add it to `src/i18n/routing.ts` → `locales` array and create `src/messages/{locale}.json`.
-
----
-
-## Theming
-
-- Default: `dark`.
-- Toggle in header switches and persists to `localStorage`.
-- CSS variables defined in `globals.css` using `oklch` color space.
-- Accent color: **emerald** (`oklch(0.72 0.17 156)`).
-
-To change accent: update `--color-accent` and `--color-ring` in both `:root` and `.dark` blocks in [src/app/globals.css](src/app/globals.css).
-
----
-
-## SEO checklist
-
-- [x] `generateMetadata` on every route (title, description, canonical, alternates, OG, Twitter)
-- [x] `hreflang` EN/ES via `alternates.languages`
-- [x] `sitemap.xml` — static pages, both locales
-- [x] `robots.txt` — allow all, sitemap reference
-- [x] `manifest.webmanifest` — PWA metadata
-- [x] JSON-LD `Person` schema injected in `<head>`
-- [x] Self-hosted Geist fonts with `display: swap`
-- [x] `next/image` with AVIF/WebP formats
-
----
-
-## Performance notes
-
-- `optimizePackageImports` enabled for `lucide-react` and `framer-motion`.
-- All animations respect `prefers-reduced-motion: reduce` — motion disabled entirely.
-- PageLoader skipped entirely when `prefers-reduced-motion` is active.
-
----
-
-## Deploy (Vercel — pending)
+## Deploy (Vercel)
 
 ```bash
 # 1. Push to GitHub (repo: rllapur89/portfolio)
@@ -201,18 +200,15 @@ Recommended settings:
 
 - Framework: Next.js (auto-detected)
 - Build command: `npm run build`
-- Output directory: `.next`
 - Enable Vercel Analytics + Speed Insights in project dashboard
 
 ---
 
-## Roadmap / Next steps
+## Roadmap
 
 - [ ] Add real profile photo to About section
-- [ ] Highlight GDE & MVP badges in Hero or About
 - [ ] Set up Resend domain verification for contact form
 - [ ] Add Vitest unit tests (theme toggle, locale switcher, form validation)
-- [ ] Add Playwright E2E tests (dark mode persistence, locale switch, contact form flow)
+- [ ] Add Playwright E2E tests (dark mode persistence, locale switch, contact form)
 - [ ] Set up Lighthouse CI in GitHub Actions (target: 95+ all categories)
 - [ ] Configure custom domain `renellapur.dev`
-- [ ] Enable Vercel Analytics + Speed Insights post-deploy
