@@ -56,7 +56,7 @@
       "switch": {
         "company": "Switch Software Solutions",
         "role": "Full-stack Software Developer",
-        "period": "Jul 2021 — Present",
+        "period": "Jul 2021 — Feb 2026",
         "highlights": [
           "Led development of Verifone's Merchant Order Portal — the world's #1 POS provider — serving millions of users via Microfrontends + Monorepo architecture and a shared Design System.",
           "Architected a hybrid SSO integrating Azure AD, Radius and MFA (TOTP) via AWS Cognito, cutting user onboarding time by 40%.",
