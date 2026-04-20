@@ -20,6 +20,7 @@ import {
   siNodedotjs, siExpress, siPrisma, siPhp, siLaravel, siSymfony, siDrupal,
   siWordpress, siMysql, siMongodb, siPostgresql, siOctobercms, siDocker,
   siJest, siJasmine, siVitest, siPrimeng,
+  siBootstrap,
   siFigma, siJira, siBitbucket, siGit, siVite, siWebpack, siVercel, siSwiper, siGraphql,
   type SimpleIcon,
 } from 'simple-icons';
@@ -105,6 +106,7 @@ export const skillIconMap: Record<string, SimpleIcon> = {
   MongoDB: siMongodb,
   PostgreSQL: siPostgresql,
   'October CMS': siOctobercms,
+  Bootstrap: siBootstrap,
   Docker: siDocker,
   'AWS (Cognito, AppSync, Amplify, EC2, Lambda, S3)': siAws,
   'AWS (Cognito, EC2, Lambda, S3)': siAws,
@@ -163,10 +165,10 @@ export const experienceMeta: Record<
   },
   twoinnovate: {
     website: 'https://2innovateit.com',
-    stack: ['Angular', 'NgRx', 'Redux', 'TypeScript', 'Angular Material', 'Nebular'],
+    stack: ['Angular', 'NgRx', 'Redux', 'TypeScript', 'Angular Material', 'Nebular', 'Bootstrap'],
   },
-  arnaldo: { stack: ['PHP', 'Laravel', 'October CMS', 'MySQL', 'MongoDB'] },
-  desoft: { stack: ['PHP', 'Symfony', 'Drupal', 'WordPress', 'PostgreSQL', 'MySQL'] },
+  arnaldo: { website: 'https://arnaldocastro.com.uy/', stack: ['PHP', 'Laravel', 'October CMS', 'Bootstrap', 'WordPress', 'MySQL', 'MongoDB'] },
+  desoft: { website: 'https://www.desoft.cu/en', stack: ['PHP', 'Symfony', 'Drupal', 'Bootstrap', 'WordPress', 'PostgreSQL', 'MySQL'] },
 };
 
 export type ProjectKey = 'miAuto' | 'paseLibre' | 'bancoEstado' | 'verifone' | 'bcie' | 'tata' | 'arnaldo' | 'twoinnovate' | 'axletrees';
@@ -214,6 +216,7 @@ export const skillGroups: SkillGroup[] = [
       s('HTML5'),
       s('CSS3 / SASS'),
       s('Tailwind CSS'),
+      s('Bootstrap'),
       s('Angular Material'),
       s('PrimeNG'),
       s('Material UI'),
