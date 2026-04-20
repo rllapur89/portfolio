@@ -21,6 +21,7 @@ Personal portfolio of **Rene Llapur**, Senior Frontend Engineer with 12+ years o
 | SEO | `generateMetadata`, `sitemap.ts`, `robots.ts`, JSON-LD Person schema |
 | Fonts | Geist Sans + Geist Mono via `next/font/google` |
 | Deploy | Vercel |
+| Testing | Vitest + Testing Library (unit) · Playwright (E2E) |
 
 ---
 
@@ -165,6 +166,21 @@ npm run lint       # ESLint flat config
 npm run format     # Prettier
 ```
 
+### Testing
+
+```bash
+npm run test           # Vitest unit tests (38 tests)
+npm run test:watch     # Vitest in watch mode
+npm run test:e2e       # Playwright E2E (38 tests, desktop + mobile)
+npm run test:e2e:ui    # Playwright with interactive UI
+```
+
+Unit tests cover: utilities (`cn`, `getSiteUrl`, `absoluteUrl`, `formatDate`), Zod contact schema validation, hooks (`usePrefersReducedMotion`, `useTypewriter`), YouTube ID extraction, and the `sendContactMessage` server action (including Resend mock scenarios).
+
+E2E tests cover (Chromium + Pixel 5 mobile): navigation and anchor scrolling, locale switching EN↔ES, dark/light theme toggle with persistence, contact form validation, and accessibility landmarks.
+
+> E2E tests require a running dev server (`npm run dev`) or will start one automatically via Playwright's `webServer` config.
+
 ---
 
 ## Projects Data
@@ -208,7 +224,7 @@ Recommended settings:
 
 - [ ] Add real profile photo to About section
 - [ ] Set up Resend domain verification for contact form
-- [ ] Add Vitest unit tests (theme toggle, locale switcher, form validation)
-- [ ] Add Playwright E2E tests (dark mode persistence, locale switch, contact form)
+- [x] Add Vitest unit tests — 38 tests across hooks, utils, schema, server action
+- [x] Add Playwright E2E tests — 38 tests across desktop + mobile (navigation, locale, theme, contact, a11y)
 - [ ] Set up Lighthouse CI in GitHub Actions (target: 95+ all categories)
 - [ ] Configure custom domain `renellapur.dev`
