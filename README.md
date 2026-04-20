@@ -106,6 +106,24 @@ src/
 └── messages/
     ├── en.json                 # All EN copy
     └── es.json                 # All ES copy
+tests/
+├── unit/
+│   ├── setup.ts                # jsdom, next-intl/next-themes/framer-motion mocks, matchMedia stub
+│   ├── actions/
+│   │   └── send-contact-message.test.ts  # Server action — validation, Resend mock, error paths
+│   ├── hooks/
+│   │   ├── use-reduced-motion.test.ts    # matchMedia listener + cleanup
+│   │   └── use-typewriter.test.ts        # State machine with fake timers
+│   └── lib/
+│       ├── contact-schema.test.ts        # Zod schema validation
+│       ├── get-youtube-id.test.ts        # URL parsing utility
+│       └── utils.test.ts                 # cn, getSiteUrl, absoluteUrl, formatDate
+└── e2e/
+    ├── accessibility.spec.ts   # skip link, main, h1, img alt, nav aria-label
+    ├── contact-form.spec.ts    # validation errors, field labels, submit button
+    ├── locale.spec.ts          # EN↔ES switching on desktop and mobile
+    ├── navigation.spec.ts      # redirect /, nav links, anchor scroll
+    └── theme.spec.ts           # dark default, toggle, persistence across reload
 ```
 
 ---
@@ -217,14 +235,3 @@ Recommended settings:
 - Framework: Next.js (auto-detected)
 - Build command: `npm run build`
 - Enable Vercel Analytics + Speed Insights in project dashboard
-
----
-
-## Roadmap
-
-- [ ] Add real profile photo to About section
-- [ ] Set up Resend domain verification for contact form
-- [x] Add Vitest unit tests — 38 tests across hooks, utils, schema, server action
-- [x] Add Playwright E2E tests — 38 tests across desktop + mobile (navigation, locale, theme, contact, a11y)
-- [ ] Set up Lighthouse CI in GitHub Actions (target: 95+ all categories)
-- [ ] Configure custom domain `renellapur.dev`
