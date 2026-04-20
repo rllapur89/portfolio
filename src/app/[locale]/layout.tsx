@@ -7,6 +7,7 @@ import { ThemeProvider } from '@/components/layout/theme-provider';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { PageLoader } from '@/components/layout/page-loader';
+import { ChatWidget } from '@/components/chat/chat-widget';
 import { routing } from '@/i18n/routing';
 import { buildMetadata, personJsonLd } from '@/lib/seo';
 
@@ -94,6 +95,7 @@ export default async function LocaleLayout({
               {children}
             </main>
             <Footer />
+            <ChatWidget />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

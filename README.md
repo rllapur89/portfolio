@@ -18,6 +18,7 @@ Personal portfolio of **Rene Llapur**, Senior Frontend Engineer with 12+ years o
 | Icons | Lucide React + simple-icons |
 | Slider | Swiper 12 |
 | Forms | React Hook Form + Zod v4 + Resend (Server Action) |
+| AI Chat | Vercel AI SDK v6 · Groq → Cerebras → Gemini → Claude (fallback chain) |
 | SEO | `generateMetadata`, `sitemap.ts`, `robots.ts`, JSON-LD Person schema |
 | Fonts | Geist Sans + Geist Mono via `next/font/google` |
 | Deploy | Vercel |
@@ -70,6 +71,17 @@ SwiperJS with responsive `slidesPerGroup`: 1 on mobile, 2 on tablet, 3 on deskto
 - Focus ring via `focus-visible:` Tailwind utilities
 - Slider dots use `role="tablist"` / `role="tab"` with `aria-selected`
 
+### AI Chat Widget
+
+Floating widget (bottom-right FAB) backed by a `POST /api/chat` Route Handler. Provider chain tried in order — first available key wins, next is tried on failure or rate-limit:
+
+1. **Groq** — `llama-3.3-70b-versatile` (free tier, fastest)
+2. **Cerebras** — `llama-3.3-70b` (free tier, 1M tokens/day)
+3. **Google Gemini** — `gemini-2.0-flash` (free tier, 15 RPM)
+4. **Anthropic Claude** — `claude-haiku-4-5` (paid fallback)
+
+The system prompt (`src/lib/chat-prompt.ts`) is fully bilingual (EN/ES) and contains Rene's complete profile — experience, stack, projects, availability, and contact info. No RAG, no vector DB — the full context fits in a single prompt. Responses are rendered with `react-markdown` + `@tailwindcss/typography`.
+
 ---
 
 ## Project Structure
@@ -81,6 +93,8 @@ src/
 │   │   ├── layout.tsx          # Per-locale root: html lang, ThemeProvider, PageLoader, NextIntlClientProvider
 │   │   ├── page.tsx            # Home — all sections assembled
 │   │   └── actions.ts          # Server Action: sendContactMessage → Resend
+│   ├── api/
+│   │   └── chat/route.ts       # POST /api/chat — multi-provider fallback (Groq→Cerebras→Gemini→Claude)
 │   ├── globals.css             # Tailwind v4 @theme, CSS vars light/dark, utilities
 │   ├── sitemap.ts
 │   ├── robots.ts
@@ -88,6 +102,8 @@ src/
 ├── components/
 │   ├── layout/                 # Header, Footer, ThemeToggle, LocaleSwitcher, ThemeProvider, PageLoader
 │   ├── sections/               # Headline, About, Experience, Projects, Skills, Talks, Contact
+│   ├── chat/
+│   │   └── chat-widget.tsx     # Floating AI chat — FAB + panel, suggested questions, markdown rendering
 │   ├── animations/             # FadeIn, Stagger, StaggerItem
 │   └── ui/                     # Button, Badge, Section
 ├── hooks/
@@ -100,6 +116,7 @@ src/
 │   └── request.ts              # getRequestConfig — loads messages per locale
 ├── lib/
 │   ├── data.ts                 # Experience, projects, skills, certifications — static typed data
+│   ├── chat-prompt.ts          # Bilingual system prompt for AI chat widget
 │   ├── seo.ts                  # buildMetadata helper + personJsonLd
 │   ├── site-config.ts          # Name, email, socials, nav sections
 │   └── utils.ts                # cn(), absoluteUrl(), getSiteUrl()
@@ -111,10 +128,13 @@ tests/
 │   ├── setup.ts                # jsdom, next-intl/next-themes/framer-motion mocks, matchMedia stub
 │   ├── actions/
 │   │   └── send-contact-message.test.ts  # Server action — validation, Resend mock, error paths
+│   ├── api/
+│   │   └── chat-route.test.ts            # Chat route — provider chain, fallback, 503, locale
 │   ├── hooks/
 │   │   ├── use-reduced-motion.test.ts    # matchMedia listener + cleanup
 │   │   └── use-typewriter.test.ts        # State machine with fake timers
 │   └── lib/
+│       ├── chat-prompt.test.ts           # buildSystemPrompt — EN/ES content assertions
 │       ├── contact-schema.test.ts        # Zod schema validation
 │       ├── get-youtube-id.test.ts        # URL parsing utility
 │       └── utils.test.ts                 # cn, getSiteUrl, absoluteUrl, formatDate
@@ -140,6 +160,7 @@ tests/
 | **Skills** | Grouped by category (Frontend, State, Backend, Infra, Testing, Practices, Tools) with SimpleIcons. |
 | **Talks** | Angular meetup talk + certifications list. |
 | **Contact** | React Hook Form + Zod validation + Resend Server Action. |
+| **ChatWidget** | Floating AI assistant (bottom-right FAB). Multi-provider fallback chain. Bilingual system prompt. Markdown rendering via `react-markdown`. |
 
 ---
 
@@ -171,9 +192,17 @@ CONTACT_EMAIL_TO=rene.llapur@gmail.com
 
 # Verified sender on Resend (must match a verified domain)
 CONTACT_EMAIL_FROM=contact@renellapur.dev
+
+# AI Chat Widget — providers tried in order, falls back to next on failure/rate-limit
+# Add at least one. Claude is the final paid fallback.
+GROQ_API_KEY=gsk_xxxxxxxxxxxx                  # free tier — https://console.groq.com
+CEREBRAS_API_KEY=csk_xxxxxxxxxxxx              # free tier — https://cloud.cerebras.ai
+GOOGLE_GENERATIVE_AI_API_KEY=AIzaxxxxxxxxxxxx  # free tier — https://aistudio.google.com
+ANTHROPIC_API_KEY=sk-ant-xxxxxxxxxxxx          # paid fallback — https://console.anthropic.com
 ```
 
 > Without `RESEND_API_KEY` the contact form returns an `unconfigured` error — the rest of the site works fine.
+> Without any AI key the chat widget shows a "no provider configured" error — all other sections work normally.
 
 ### Build
 
@@ -187,13 +216,13 @@ npm run format     # Prettier
 ### Testing
 
 ```bash
-npm run test           # Vitest unit tests (38 tests)
+npm run test           # Vitest unit tests (60 tests)
 npm run test:watch     # Vitest in watch mode
 npm run test:e2e       # Playwright E2E (38 tests, desktop + mobile)
 npm run test:e2e:ui    # Playwright with interactive UI
 ```
 
-Unit tests cover: utilities (`cn`, `getSiteUrl`, `absoluteUrl`, `formatDate`), Zod contact schema validation, hooks (`usePrefersReducedMotion`, `useTypewriter`), YouTube ID extraction, and the `sendContactMessage` server action (including Resend mock scenarios).
+Unit tests cover: utilities (`cn`, `getSiteUrl`, `absoluteUrl`, `formatDate`), Zod contact schema validation, hooks (`usePrefersReducedMotion`, `useTypewriter`), YouTube ID extraction, `sendContactMessage` server action (Resend mock scenarios), `buildSystemPrompt` (EN/ES content assertions), and the chat API route (provider chain, fallback logic, 503 on no provider, locale routing).
 
 E2E tests cover (Chromium + Pixel 5 mobile): navigation and anchor scrolling, locale switching EN↔ES, dark/light theme toggle with persistence, contact form validation, and accessibility landmarks.
 

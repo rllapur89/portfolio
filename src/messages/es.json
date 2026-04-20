@@ -194,5 +194,14 @@
     "builtWith": "Construido con Next.js, Tailwind y dedicación.",
     "copyright": "© {year} Rene Llapur. Todos los derechos reservados.",
     "madeIn": "Hecho en Montevideo, Uruguay."
+  },
+  "chat": {
+    "title": "Asistente IA",
+    "subtitle": "Preguntame sobre Rene",
+    "welcome": "¡Hola! Soy el asistente del portfolio de Rene. Preguntame sobre sus habilidades, proyectos, experiencia o cómo contactarlo.",
+    "placeholder": "Preguntame lo que quieras...",
+    "send": "Enviar mensaje",
+    "close": "Cerrar chat",
+    "open": "Abrir asistente de chat"
   }
 }

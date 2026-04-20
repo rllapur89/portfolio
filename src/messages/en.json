@@ -194,5 +194,14 @@
     "builtWith": "Built with Next.js, Tailwind and care.",
     "copyright": "© {year} Rene Llapur. All rights reserved.",
     "madeIn": "Made in Montevideo, Uruguay."
+  },
+  "chat": {
+    "title": "AI Assistant",
+    "subtitle": "Ask me anything about Rene",
+    "welcome": "Welcome! I'm Rene's portfolio assistant. Ask me anything about his skills, projects, experience, or how to get in touch.",
+    "placeholder": "Ask me anything...",
+    "send": "Send message",
+    "close": "Close chat",
+    "open": "Open chat assistant"
   }
 }
