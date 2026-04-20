@@ -2,7 +2,7 @@
 
 Personal portfolio of **Rene Llapur**, Senior Frontend Engineer with 12+ years of experience across finance, education, government, and enterprise.
 
-**Live:** `renellapur.dev` (pending custom domain)
+**Live:** [rene-llapur-portfolio.vercel.app](https://rene-llapur-portfolio.vercel.app/)
 
 ---
 
