@@ -48,7 +48,7 @@ export function Headline() {
   );
 
   const roles = t.raw('roles') as string[];
-  const { displayed, showCursor } = useTypewriter({ words: roles, enabled: !reduced });
+  const { displayed } = useTypewriter({ words: roles, enabled: !reduced });
 
   const Wrapper = reduced ? 'div' : motion.div;
   const Item = reduced ? 'div' : motion.div;
@@ -104,10 +104,11 @@ export function Headline() {
             </span>
             <span className="text-accent">
               {displayed}
-              <span
+              <motion.span
                 aria-hidden
-                className="ml-0.5 inline-block w-0.75 translate-y-1 rounded-sm bg-accent"
-                style={{ opacity: showCursor ? 1 : 0 }}
+                className="ml-1 inline-block h-[0.85em] w-0.75 translate-y-[0.1em] rounded-sm bg-accent"
+                animate={{ opacity: [1, 1, 0, 0] }}
+                transition={{ duration: 1, repeat: Infinity, ease: 'linear', times: [0, 0.5, 0.5, 1] }}
               />
             </span>
           </h1>
