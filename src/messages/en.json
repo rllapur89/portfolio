@@ -2,7 +2,7 @@
   "metadata": {
     "title": "Rene Llapur — Portfolio",
     "titleTemplate": "%s · Rene Llapur",
-    "description": "Senior Frontend Engineer with 12+ years of experience building high-availability applications for finance, education and enterprise. Angular, React, Next.js, AI integration.",
+    "description": "Senior Frontend Engineer with 13+ years of experience building high-availability applications for finance, education and enterprise. Angular, React, Next.js, AI integration.",
     "keywords": "Rene Llapur, Senior Frontend Engineer, Angular, React, Next.js, NgRx, TypeScript, Clean Architecture, AI integration, Uruguay"
   },
   "nav": {
@@ -22,7 +22,12 @@
     "eyebrow": "Available for senior roles",
     "greeting": "Hi, I'm Rene",
     "title": "Senior",
-    "roles": ["Software Engineer", "Frontend Engineer", "Angular Expert", "Tech Lead"],
+    "roles": [
+      "Software Engineer",
+      "Frontend Engineer",
+      "Angular Expert",
+      "Tech Lead"
+    ],
     "tagline": "I build high-availability web platforms for millions of users. Expert in Angular, React, and clean architecture — with a passion for performance, mentoring and AI-powered experiences.",
     "location": "Based in Montevideo, Uruguay",
     "primaryCta": "Download CV",
@@ -31,7 +36,7 @@
   },
   "about": {
     "title": "About me",
-    "lead": "12+ years shipping production software for financial, educational and enterprise platforms.",
+    "lead": "13+ years shipping production software for financial, educational and enterprise platforms.",
     "body": "I'm a Senior Software Engineer who bridges technical excellence and business outcomes. From AngularJS migrations to AI-powered validation assistants, I design systems that scale. Speaker at Angular meetups and a committed mentor — I've conducted 20+ technical interviews and shaped onboarding roadmaps for senior and junior hires.",
     "pillars": {
       "architecture": {
@@ -50,9 +55,19 @@
   },
   "experience": {
     "title": "Experience",
-    "subtitle": "12+ years across finance, education, government and enterprise.",
+    "subtitle": "13+ years across finance, education, government and enterprise.",
     "present": "Present",
     "items": {
+      "tenpearls": {
+        "company": "10Pearls",
+        "role": "Technical Lead & Senior Full Stack Engineer",
+        "period": "Jul 2026 — Oct 2026",
+        "highlights": [
+          "As Technical Lead of a 4-developer team, defined the architecture and roadmap of a config-driven, multi-step form platform on micro frontends: single-spa shell, Angular 16/19/21 and React apps coexisting in a Turborepo monorepo, JSON Schema forms rendered with JSON Forms, and UI shared across apps as parcels.",
+          "Designed the Node.js/TypeScript microservices layer (Express, REST): a server-side weighted scoring engine, PostgreSQL (JSONB) with immutable versioned records (draft/publish) so historical results never change when business rules evolve, Excel template generation and validated upload with server-side score recalculation, cross-service authorization and feature-flag rollouts.",
+          "Set the team's engineering standards: technical design documents with explicit trade-offs, dependency-driven task breakdown, code review practices, a shared component library strategy, and an AI-assisted PR review pipeline in Bitbucket that cuts review time and enforces design-system conformance."
+        ]
+      },
       "switch": {
         "company": "Switch Software Solutions",
         "role": "Full-stack Software Developer",
@@ -62,6 +77,7 @@
           "Architected a hybrid SSO integrating Azure AD, Radius and MFA (TOTP) via AWS Cognito, cutting user onboarding time by 40%.",
           "Delivered 30% LCP improvement and 25% lower API latency through NgRx state management and Core Web Vitals strategies.",
           "Designed AI-powered validation assistants with real-time streaming, reducing B2B configuration errors by 30% and support tickets by 50%.",
+          "Built the real-time lead grid of a sales intelligence desktop app fed by a web scraping pipeline, using NgRx and RxJS for state, SignalR over WebSockets for live updates and AG Grid virtual scrolling. It handled 100,000+ records, and client memory use dropped about 40% after removing leaks found with Electron profiling.",
           "Migrated a business-critical AngularJS app to the latest Angular version with zero regressions.",
           "Conducted 20+ technical interviews and designed the onboarding roadmap for new senior and junior hires."
         ]
@@ -167,7 +183,12 @@
         "year": "2024",
         "description": "Live demo and deep dive into integrating OpenAI APIs in an Angular project — covering each available model, their trade-offs, and strategies for efficient, cost-aware usage in production apps.",
         "videoUrl": "https://www.youtube.com/watch?v=zXHSFZ3IAQk",
-        "tags": ["Angular", "OpenAI", "AI Integration", "LLMs"]
+        "tags": [
+          "Angular",
+          "OpenAI",
+          "AI Integration",
+          "LLMs"
+        ]
       }
     ]
   },

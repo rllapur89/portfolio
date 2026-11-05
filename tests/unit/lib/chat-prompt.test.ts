@@ -17,7 +17,7 @@ describe('buildSystemPrompt', () => {
     });
 
     it('mentions availability for remote roles', () => {
-      expect(prompt).toContain('active job search');
+      expect(prompt).toContain('Actively seeking opportunities');
       expect(prompt).toContain('remote');
     });
 

@@ -21,7 +21,7 @@ import {
   siWordpress, siMysql, siMongodb, siPostgresql, siOctobercms, siDocker,
   siJest, siJasmine, siVitest, siPrimeng,
   siBootstrap,
-  siFigma, siJira, siBitbucket, siGit, siVite, siWebpack, siVercel, siSwiper, siGraphql,
+  siFigma, siJira, siTurborepo, siGooglecloud, siPython, siLit, siCypress, siBitbucket, siGit, siVite, siWebpack, siVercel, siSwiper, siGraphql,
   type SimpleIcon,
 } from 'simple-icons';
 
@@ -122,6 +122,11 @@ export const skillIconMap: Record<string, SimpleIcon> = {
   Git: siGit,
   Vite: siVite,
   Webpack: siWebpack,
+  Turborepo: siTurborepo,
+  'GCP (Cloud Run)': siGooglecloud,
+  Python: siPython,
+  'Lit Web Components': siLit,
+  Cypress: siCypress,
   Vercel: siVercel,
   SwiperJS: siSwiper,
   GraphQL: siGraphql,
@@ -132,17 +137,20 @@ export function iconFor(label: string): SimpleIcon | undefined {
   return skillIconMap[label];
 }
 
-export type ExperienceKey = 'switch' | 'twoinnovate' | 'arnaldo' | 'desoft';
+export type ExperienceKey = 'tenpearls' | 'switch' | 'twoinnovate' | 'arnaldo' | 'desoft';
 
-export const experienceOrder: ExperienceKey[] = ['switch', 'twoinnovate', 'arnaldo', 'desoft'];
+export const experienceOrder: ExperienceKey[] = ['tenpearls', 'switch', 'twoinnovate', 'arnaldo', 'desoft'];
 
 export const experienceMeta: Record<
   ExperienceKey,
   { website?: string; stack: string[]; current?: boolean }
 > = {
+  tenpearls: {
+    website: 'https://10pearls.com',
+    stack: ['Angular', 'RxJS', 'Signals', 'React', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Turborepo', 'Lit Web Components', 'Python', 'GCP (Cloud Run)', 'Docker', 'Cypress', 'Bitbucket', 'Jira', 'Figma'],
+  },
   switch: {
     website: 'https://www.switch-software.com',
-    current: true,
     stack: [
       'Angular',
       'RxJS',
@@ -210,6 +218,7 @@ export const skillGroups: SkillGroup[] = [
       s('Angular'),
       s('Angular Universal (SSR)'),
       s('React'),
+      s('Lit Web Components'),
       s('Next.js'),
       s('TypeScript'),
       s('JavaScript'),
@@ -231,7 +240,7 @@ export const skillGroups: SkillGroup[] = [
   {
     key: 'backend',
     icon: Braces,
-    items: [s('NestJS'), s('Node.js'), s('Express'), s('Prisma'), s('REST APIs'), s('GraphQL'), s('PHP (Laravel, Symfony)'), s('AI Integration / LLMs'), s('AI Agents')],
+    items: [s('NestJS'), s('Node.js'), s('Express'), s('Python'), s('PostgreSQL'), s('Prisma'), s('REST APIs'), s('GraphQL'), s('PHP (Laravel, Symfony)'), s('AI Integration / LLMs'), s('AI Agents')],
   },
   {
     key: 'infra',
@@ -240,6 +249,7 @@ export const skillGroups: SkillGroup[] = [
       s('AWS (Cognito, AppSync, Amplify, EC2, Lambda, S3)'),
       s('Azure AD (MSAL)'),
       s('Docker'),
+      s('GCP (Cloud Run)'),
       s('Vercel'),
       s('CI/CD Pipelines'),
       s('OAuth2 / OIDC'),
@@ -249,7 +259,7 @@ export const skillGroups: SkillGroup[] = [
   {
     key: 'testing',
     icon: TestTube,
-    items: [s('Jest'), s('Karma / Jasmine'), s('Vitest'), s('Playwright'), s('Testing Library')],
+    items: [s('Jest'), s('Karma / Jasmine'), s('Vitest'), s('Playwright'), s('Cypress'), s('Testing Library')],
   },
   {
     key: 'practices',
@@ -258,8 +268,10 @@ export const skillGroups: SkillGroup[] = [
       s('Clean Architecture'),
       s('Hexagonal Architecture'),
       s('Atomic Design'),
-      s('Microfrontends'),
-      s('Monorepos'),
+      s('Microfrontends (single-spa)'),
+      s('Monorepos (Turborepo)'),
+      s('System Design'),
+      s('Technical Leadership'),
       s('SCRUM / Agile'),
       s('Mentoring & Interviews'),
     ],

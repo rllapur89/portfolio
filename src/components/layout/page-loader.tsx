@@ -16,7 +16,7 @@ const BOOT_LINES: Record<string, BootLineItem[]> = {
     { text: 'Syncing Azure AD pipelines...', delay: 1800 },
     { text: 'Loading Docker containers...', delay: 2100 },
     { text: 'Loading backend experience: PHP, Java/Spring Boot, Node.js, NestJS...', delay: 2100 },
-    { text: '12 years of experience loaded.', delay: 2700 },
+    { text: '13 years of experience loaded.', delay: 2700 },
     { text: 'System ready. Welcome, visitor.', delay: 3000, ready: true },
   ],
   es: [
@@ -28,7 +28,7 @@ const BOOT_LINES: Record<string, BootLineItem[]> = {
     { text: 'Sincronizando pipelines de Azure AD...', delay: 1800 },
     { text: 'Cargando contenedores Docker...', delay: 2100 },
     { text: 'Cargando experiencia de backend: PHP, Java/Spring Boot, Node.js, NestJS...', delay: 2100 },
-    { text: '12 años de experiencia cargados.', delay: 2700 },
+    { text: '13 años de experiencia cargados.', delay: 2700 },
     { text: 'Sistema listo. Bienvenido, visitante.', delay: 3000, ready: true },
   ],
 };

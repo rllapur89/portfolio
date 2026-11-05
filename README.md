@@ -1,6 +1,6 @@
 # rene.llapur — Portfolio
 
-Personal portfolio of **Rene Llapur**, Senior Frontend Engineer with 12+ years of experience across finance, education, government, and enterprise.
+Personal portfolio of **Rene Llapur**, Senior Frontend Engineer with 13+ years of experience across finance, education, government, and enterprise.
 
 **Live:** [rene-llapur-portfolio.vercel.app](https://rene-llapur-portfolio.vercel.app/)
 

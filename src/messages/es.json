@@ -2,7 +2,7 @@
   "metadata": {
     "title": "Rene Llapur — Portafolio",
     "titleTemplate": "%s · Rene Llapur",
-    "description": "Senior Frontend Engineer con 12+ años construyendo aplicaciones de alta disponibilidad para finanzas, educación y empresas. Angular, React, Next.js, integración de IA.",
+    "description": "Senior Frontend Engineer con 13+ años construyendo aplicaciones de alta disponibilidad para finanzas, educación y empresas. Angular, React, Next.js, integración de IA.",
     "keywords": "Rene Llapur, Senior Frontend Engineer, Angular, React, Next.js, NgRx, TypeScript, Clean Architecture, IA, Uruguay"
   },
   "nav": {
@@ -22,7 +22,12 @@
     "eyebrow": "Disponible para roles senior",
     "greeting": "Hola, soy Rene",
     "title": "Senior",
-    "roles": ["Software Engineer", "Frontend Engineer", "Experto en Angular", "Tech Lead"],
+    "roles": [
+      "Software Engineer",
+      "Frontend Engineer",
+      "Experto en Angular",
+      "Tech Lead"
+    ],
     "tagline": "Construyo plataformas web de alta disponibilidad para millones de usuarios. Experto en Angular, React y arquitectura limpia — apasionado por el performance, el mentoring y las experiencias con IA.",
     "location": "Desde Montevideo, Uruguay",
     "primaryCta": "Descargar CV",
@@ -31,7 +36,7 @@
   },
   "about": {
     "title": "Sobre mí",
-    "lead": "12+ años enviando software a producción en plataformas financieras, educativas y corporativas.",
+    "lead": "13+ años enviando software a producción en plataformas financieras, educativas y corporativas.",
     "body": "Soy un Senior Software Engineer que une excelencia técnica con resultados de negocio. Desde migraciones de AngularJS hasta asistentes de validación con IA, diseño sistemas que escalan. Speaker en meetups de Angular y mentor comprometido — conduje 20+ entrevistas técnicas y diseñé el roadmap de onboarding para seniors y juniors.",
     "pillars": {
       "architecture": {
@@ -50,9 +55,19 @@
   },
   "experience": {
     "title": "Experiencia",
-    "subtitle": "12+ años entre finanzas, educación, gobierno y corporativo.",
+    "subtitle": "13+ años entre finanzas, educación, gobierno y corporativo.",
     "present": "Presente",
     "items": {
+      "tenpearls": {
+        "company": "10Pearls",
+        "role": "Technical Lead & Senior Full Stack Engineer",
+        "period": "Jul 2026 — Oct 2026",
+        "highlights": [
+          "Como Technical Lead de un equipo de 4 desarrolladores, definí la arquitectura y el roadmap técnico de una plataforma de formularios multi-paso dirigida por configuración sobre micro frontends: shell single-spa, apps Angular 16/19/21 y React conviviendo en un monorepo Turborepo, formularios JSON Schema renderizados con JSON Forms y UI compartida entre aplicaciones como parcels.",
+          "Diseñé la capa de microservicios en Node.js/TypeScript (Express, REST): motor de scoring ponderado del lado servidor, PostgreSQL (JSONB) con registros versionados inmutables (draft/publish) para que los resultados históricos no cambien al evolucionar las reglas de negocio, generación de plantillas Excel y carga validada con recálculo de score en el servidor, autorización entre servicios y despliegues con feature flags.",
+          "Establecí los estándares de ingeniería del equipo: documentos de diseño técnico con trade-offs explícitos, desglose de tareas por dependencias, prácticas de code review, estrategia de librería de componentes compartida y un pipeline de revisión de PRs asistido por IA en Bitbucket que reduce el tiempo de revisión y asegura la conformidad con el design system."
+        ]
+      },
       "switch": {
         "company": "Switch Software Solutions",
         "role": "Desarrollador Full-stack",
@@ -62,6 +77,7 @@
           "Arquitecté un SSO híbrido integrando Azure AD, Radius y MFA (TOTP) vía AWS Cognito, reduciendo el tiempo de onboarding en 40%.",
           "Logré 30% de mejora en LCP y 25% menos latencia de API con NgRx y estrategias de Core Web Vitals.",
           "Diseñé asistentes de validación con IA y streaming en tiempo real, reduciendo errores de configuración B2B en 30% y tickets de soporte en 50%.",
+          "Construí el grid de leads en tiempo real de una app de escritorio de sales intelligence alimentada por un pipeline de web scraping, con NgRx y RxJS para el estado, SignalR sobre WebSockets para actualizaciones en vivo y virtual scrolling de AG Grid. Manejó 100.000+ registros y el uso de memoria del cliente bajó cerca de 40% tras eliminar leaks detectados con el profiler de Electron.",
           "Migré una app crítica de AngularJS a la última versión de Angular sin regresiones.",
           "Conduje 20+ entrevistas técnicas y diseñé el roadmap de onboarding para nuevos seniors y juniors."
         ]
@@ -167,7 +183,12 @@
         "year": "2024",
         "description": "Demo en vivo e integración de las APIs de OpenAI en un proyecto Angular — cobertura de cada modelo disponible, sus trade-offs y estrategias para un uso eficiente y consciente del costo en apps de producción.",
         "videoUrl": "https://www.youtube.com/watch?v=zXHSFZ3IAQk",
-        "tags": ["Angular", "OpenAI", "Integración IA", "LLMs"]
+        "tags": [
+          "Angular",
+          "OpenAI",
+          "Integración IA",
+          "LLMs"
+        ]
       }
     ]
   },

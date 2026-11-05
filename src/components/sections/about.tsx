@@ -12,7 +12,7 @@ const pillars = [
 
 const badges = [
   { label: 'Angular Meetups Speaker', color: 'text-accent border-accent/30 bg-accent/8' },
-  { label: '12+ Years Experience', color: 'text-emerald-400 border-emerald-400/30 bg-emerald-400/8' },
+  { label: '13+ Years Experience', color: 'text-emerald-400 border-emerald-400/30 bg-emerald-400/8' },
   { label: 'Scrum SFPC Certified', color: 'text-blue-400 border-blue-400/30 bg-blue-400/8' },
 ];
 
